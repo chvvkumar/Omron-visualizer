@@ -199,7 +199,7 @@ const App = () => {
       <header className="max-w-7xl mx-auto mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
           <h1 className="text-3xl font-light tracking-tight text-gray-200">
-            Vital <span className="font-bold text-[#2dd4bf]">Analytics</span>
+            BP <span className="font-bold text-[#2dd4bf]">Analytics</span>
           </h1>
           <p className="text-gray-400 text-sm mt-1 uppercase tracking-widest font-medium">BP Data Visualization Dashboard</p>
         </div>
@@ -255,11 +255,12 @@ const App = () => {
           onDataChanged={fetchReadings}
         />
       ) : data.length === 0 ? (
-        <div className="max-w-2xl mx-auto mt-20 text-center p-12 border-2 border-dashed border-[#444] rounded-2xl bg-[#2a2a2a]">
+        <label className={`max-w-2xl mx-auto mt-20 text-center p-12 border-2 border-dashed border-[#444] rounded-2xl bg-[#2a2a2a] block cursor-pointer hover:bg-[#333] hover:border-[#555] transition-all ${loading ? 'opacity-50 pointer-events-none' : ''}`}>
           <FileText className="mx-auto text-[#444] mb-4" size={48} />
           <h2 className="text-xl font-medium text-gray-300">No Data Loaded</h2>
-          <p className="text-gray-500 mt-2">Upload your OMRON CSV file to generate visual trends.</p>
-        </div>
+          <p className="text-gray-500 mt-2">Click to upload your OMRON CSV file to generate visual trends.</p>
+          <input type="file" className="hidden" accept=".csv" onChange={handleFileUpload} disabled={loading} />
+        </label>
       ) : (
         <main className="max-w-7xl mx-auto space-y-6">
 
