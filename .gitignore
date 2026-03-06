@@ -1,0 +1,27 @@
+# Node
+node_modules/
+frontend/build/
+backend/data/
+
+# Database
+*.db
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+*.log
+
+# Docker
+docker-compose.override.yml
+
+# Playwright MCP artifacts
+.playwright-mcp/
+.claude/
