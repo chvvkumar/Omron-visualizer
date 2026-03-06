@@ -1,0 +1,11 @@
+services:
+  vital-analytics:
+    image: chvvkumar/omron-visualizer:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - vital-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  vital-data:

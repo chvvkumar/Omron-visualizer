@@ -1,0 +1,10 @@
+node_modules
+.git
+.playwright-mcp
+Example Data
+*.md
+new-ui-screenshot.png
+frontend/node_modules
+frontend/build
+backend/node_modules
+backend/data
