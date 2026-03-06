@@ -354,7 +354,7 @@ const App = () => {
                   <div className="flex items-center justify-between mb-6">
                     <h3 className="text-lg font-medium flex items-center gap-2">
                       <TrendingUp size={18} className="text-[#2dd4bf]" />
-                      Pressure Trends
+                      Blood Pressure Trends
                     </h3>
                   </div>
                   <div className="h-[400px] w-full">
