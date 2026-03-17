@@ -368,8 +368,8 @@ const App = () => {
                           tickMargin={10}
                           minTickGap={30}
                         />
-                        <YAxis stroke="#888" fontSize={12} domain={['dataMin - 10', 'dataMax + 10']} />
-                        <Tooltip content={<CustomTooltip />} />
+                        <YAxis stroke="#888" fontSize={12} domain={['dataMin - 10', 'dataMax + 10']} tickCount={15} />
+                        <Tooltip content={<CustomTooltip />} cursor={{ stroke: '#666', strokeDasharray: '4 4' }} />
                         <Legend />
                         {showThresholds && <ReferenceLine y={120} stroke="#2dd4bf" strokeDasharray="3 3" strokeOpacity={0.6} label={{ position: 'insideTopLeft', value: '120 Sys', fill: '#2dd4bf', fontSize: 10, opacity: 0.8 }} />}
                         {showThresholds && <ReferenceLine y={80} stroke="#60a5fa" strokeDasharray="3 3" strokeOpacity={0.6} label={{ position: 'insideBottomLeft', value: '80 Dia', fill: '#60a5fa', fontSize: 10, opacity: 0.8 }} />}
@@ -380,7 +380,7 @@ const App = () => {
                           stroke="#2dd4bf"
                           strokeWidth={2}
                           dot={{ r: 4, fill: '#2dd4bf' }}
-                          activeDot={{ r: 6 }}
+                          activeDot={{ r: 7, stroke: '#2dd4bf', strokeWidth: 2, fill: '#1a1a1a' }}
                         />
                         <Line
                           type="monotone"
@@ -389,7 +389,7 @@ const App = () => {
                           stroke="#60a5fa"
                           strokeWidth={2}
                           dot={{ r: 4, fill: '#60a5fa' }}
-                          activeDot={{ r: 6 }}
+                          activeDot={{ r: 7, stroke: '#60a5fa', strokeWidth: 2, fill: '#1a1a1a' }}
                         />
                       </LineChart>
                     </ResponsiveContainer>
@@ -406,8 +406,8 @@ const App = () => {
                       <AreaChart data={filteredData}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#444" vertical={false} />
                         <XAxis dataKey="displayDate" hide />
-                        <YAxis stroke="#888" fontSize={12} domain={['dataMin - 10', 'dataMax + 10']} />
-                        <Tooltip content={<CustomTooltip />} />
+                        <YAxis stroke="#888" fontSize={12} domain={['dataMin - 10', 'dataMax + 10']} tickCount={10} />
+                        <Tooltip content={<CustomTooltip />} cursor={{ stroke: '#666', strokeDasharray: '4 4' }} />
                         <defs>
                           <linearGradient id="colorPulse" x1="0" y1="0" x2="0" y2="1">
                             <stop offset="5%" stopColor="#fb923c" stopOpacity={0.3} />
@@ -444,6 +444,7 @@ const App = () => {
                         unit=" mmHg"
                         stroke="#888"
                         domain={[90, 180]}
+                        tickCount={10}
                         label={{ value: 'Systolic', position: 'bottom', fill: '#888', offset: 0 }}
                       />
                       <YAxis
@@ -453,6 +454,7 @@ const App = () => {
                         unit=" mmHg"
                         stroke="#888"
                         domain={[60, 120]}
+                        tickCount={13}
                         label={{ value: 'Diastolic', angle: -90, position: 'insideLeft', fill: '#888' }}
                       />
                       <ZAxis type="number" dataKey="pulse" range={[50, 400]} name="Pulse" unit=" bpm" />
@@ -475,7 +477,7 @@ const App = () => {
                     <BarChart data={diurnalData} barGap={0}>
                       <CartesianGrid strokeDasharray="3 3" stroke="#444" vertical={false} />
                       <XAxis dataKey="label" stroke="#888" fontSize={11} />
-                      <YAxis stroke="#888" fontSize={12} />
+                      <YAxis stroke="#888" fontSize={12} tickCount={15} />
                       <Tooltip content={<DiurnalTooltip />} />
                       <Legend />
                       {showThresholds && <ReferenceLine y={120} stroke="#2dd4bf" strokeDasharray="3 3" strokeOpacity={0.6} />}
@@ -498,7 +500,7 @@ const App = () => {
               </h3>
               <span className="text-[10px] text-gray-500 uppercase font-bold tracking-tighter">Raw Values</span>
             </div>
-            <div className="max-h-64 overflow-y-auto">
+            <div className="max-h-[600px] overflow-y-auto">
               <table className="w-full text-left text-xs text-gray-400">
                 <thead className="bg-[#2a2a2a] sticky top-0">
                   <tr>
